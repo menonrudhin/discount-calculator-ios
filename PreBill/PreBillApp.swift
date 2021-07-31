@@ -11,7 +11,8 @@ import SwiftUI
 struct PreBillApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            ContentView();
+            SecondView();
         }
     }
 }
