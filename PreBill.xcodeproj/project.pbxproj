@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		5DE2F4AA26B37ACE00E10F34 /* SecondView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DE2F4A926B37ACE00E10F34 /* SecondView.swift */; };
 		5DF22EE226B23883006EB24A /* PreBillApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF22EE126B23883006EB24A /* PreBillApp.swift */; };
 		5DF22EE426B23883006EB24A /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 5DF22EE326B23883006EB24A /* ContentView.swift */; };
 		5DF22EE626B23884006EB24A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 5DF22EE526B23884006EB24A /* Assets.xcassets */; };
@@ -34,7 +33,6 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		5DE2F4A926B37ACE00E10F34 /* SecondView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondView.swift; sourceTree = "<group>"; };
 		5DF22EDE26B23883006EB24A /* PreBill.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = PreBill.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		5DF22EE126B23883006EB24A /* PreBillApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PreBillApp.swift; sourceTree = "<group>"; };
 		5DF22EE326B23883006EB24A /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -102,7 +100,6 @@
 				5DF22EE526B23884006EB24A /* Assets.xcassets */,
 				5DF22EEA26B23884006EB24A /* Info.plist */,
 				5DF22EE726B23884006EB24A /* Preview Content */,
-				5DE2F4A926B37ACE00E10F34 /* SecondView.swift */,
 			);
 			path = PreBill;
 			sourceTree = "<group>";
@@ -262,7 +259,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				5DE2F4AA26B37ACE00E10F34 /* SecondView.swift in Sources */,
 				5DF22EE426B23883006EB24A /* ContentView.swift in Sources */,
 				5DF22EE226B23883006EB24A /* PreBillApp.swift in Sources */,
 			);
