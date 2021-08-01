@@ -9,23 +9,36 @@ import SwiftUI
 
 struct ContentView: View {
     
-    @State private var price: String = "0.0";
-    @State private var discount: String = "0.0";
-    @State private var amount: String = "0.0";
+    @State private var price: String = "Price";
+    @State private var discount: String = "Discount";
+    @State private var amount: String = "Amount";
+    @State private var tax: String = "Tax";
     
     var body: some View {
         VStack {
-            Text("Test App").foregroundColor(Color.white)
+            Text("Discount Calculator iOS").foregroundColor(Color.white)
               .padding().background(Color.green.blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/));
-            
+            HStack {
+                Text("Price");
+                Spacer();
+                Text("Discount");
+                Spacer();
+                Text("Amount");
+            }
             HStack {
                 TextField("Price", text: $price).border(Color(UIColor.separator)).keyboardType(.decimalPad)
                     .onChange(of: price, perform: { value in
                     calculate()
-                });
+                    }).padding();
                 TextField("Dicount", text: $discount).border(Color(UIColor.separator)).keyboardType(.decimalPad).onChange(of: discount, perform: {value in calculate()
-                });
-                Text(amount).border(Color(UIColor.separator));
+                }).padding();
+                Text(amount).border(Color(UIColor.separator)).padding();
+            }
+            HStack {
+                TextField("Tax", text: $tax).border(Color(UIColor.separator)).keyboardType(.decimalPad)
+                    .onChange(of: tax, perform: { value in
+                        calculate()
+                    }).padding();
             }
         }
     }
@@ -37,8 +50,11 @@ struct ContentView: View {
         print("enter calculate")
         let _price: Float = (price as NSString).floatValue; // "let" as the value is never mutated in this scope
         let _discount: Float = (discount as NSString).floatValue;
+        let _tax: Float = (tax as NSString).floatValue;
         var _amount: Float = 0.0; // "var" to enable mutation
+        
         _amount = _price - (_price * (_discount/100));
+        _amount = _amount + (_amount * (_tax * 0.01));
         amount = String(_amount);
         print("exit calculate")
     }
