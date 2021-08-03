@@ -18,29 +18,42 @@ struct ContentView: View {
         VStack {
             Text("Discount Calculator iOS").foregroundColor(Color.white)
               .padding().background(Color.green.blur(radius: /*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/));
-            HStack {
+            /*HStack {
+                Spacer();
                 Text("Price");
                 Spacer();
                 Text("Discount");
                 Spacer();
                 Text("Amount");
-            }
+                Spacer();
+            }*/
             HStack {
+                Spacer();
                 TextField("Price", text: $price).border(Color(UIColor.separator)).keyboardType(.decimalPad)
                     .onChange(of: price, perform: { value in
                     calculate()
                     }).padding();
+                Spacer();
                 TextField("Dicount", text: $discount).border(Color(UIColor.separator)).keyboardType(.decimalPad).onChange(of: discount, perform: {value in calculate()
                 }).padding();
+                Spacer();
                 Text(amount).border(Color(UIColor.separator)).padding();
+                Spacer();
             }
             HStack {
+                Spacer();
                 TextField("Tax", text: $tax).border(Color(UIColor.separator)).keyboardType(.decimalPad)
                     .onChange(of: tax, perform: { value in
                         calculate()
                     }).padding();
+                Spacer();
             }
+            Button("Add next item", action: addRow).padding(.horizontal).background(Color.blue).foregroundColor(Color.white).cornerRadius(/*@START_MENU_TOKEN@*/3.0/*@END_MENU_TOKEN@*/)
         }
+    }
+    
+    func addRow() -> Void {
+        print("adding next item")
     }
     
     /**
