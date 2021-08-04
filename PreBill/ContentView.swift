@@ -7,12 +7,19 @@
 
 import SwiftUI
 
+class Bill {
+    public var price: Float = 0.0;
+    public var discount: Float = 0.0;
+    public var amount: Float = 0.0;
+}
+
 struct ContentView: View {
     
     @State private var price: String = "Price";
     @State private var discount: String = "Discount";
     @State private var amount: String = "Amount";
     @State private var tax: String = "Tax";
+    private var Bills: [Bill] = [];
     
     var body: some View {
         VStack {
@@ -69,6 +76,13 @@ struct ContentView: View {
         _amount = _price - (_price * (_discount/100));
         _amount = _amount + (_amount * (_tax * 0.01));
         amount = String(_amount);
+        
+        var b = Bill();
+        b.price = _price;
+        b.discount = _discount;
+        b.amount = _amount;
+        print(b.price," , ",b.discount," , ",amount);
+        
         print("exit calculate")
     }
 }
