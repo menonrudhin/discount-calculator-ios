@@ -77,7 +77,7 @@ struct ContentView: View {
         _amount = _amount + (_amount * (_tax * 0.01));
         amount = String(_amount);
         
-        var b = Bill();
+        let b = Bill();
         b.price = _price;
         b.discount = _discount;
         b.amount = _amount;
