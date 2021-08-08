@@ -7,7 +7,8 @@
 
 import SwiftUI
 
-class Bill {
+struct Bill : Identifiable {
+    var id = UUID();
     public var price: Float = 0.0;
     public var discount: Float = 0.0;
     public var amount: Float = 0.0;
@@ -19,7 +20,7 @@ struct ContentView: View {
     @State private var discount: String = "Discount";
     @State private var amount: String = "Amount";
     @State private var tax: String = "Tax";
-    private var Bills: [Bill] = [];
+    private var bills: [Bill] = [Bill(),Bill()];
     
     var body: some View {
         VStack {
@@ -34,18 +35,20 @@ struct ContentView: View {
                 Text("Amount");
                 Spacer();
             }*/
-            HStack {
-                Spacer();
-                TextField("Price", text: $price).border(Color(UIColor.separator)).keyboardType(.decimalPad)
-                    .onChange(of: price, perform: { value in
-                    calculate()
+            ForEach(bills, id: \.id) { bill in
+                //HStack {
+                    Spacer();
+                    TextField("Price", text: $price).border(Color(UIColor.separator)).keyboardType(.decimalPad)
+                        .onChange(of: price, perform: { value in
+                        calculate()
+                        }).padding();
+                    Spacer();
+                    TextField("Dicount", text: $discount).border(Color(UIColor.separator)).keyboardType(.decimalPad).onChange(of: discount, perform: {value in calculate()
                     }).padding();
-                Spacer();
-                TextField("Dicount", text: $discount).border(Color(UIColor.separator)).keyboardType(.decimalPad).onChange(of: discount, perform: {value in calculate()
-                }).padding();
-                Spacer();
-                Text(amount).border(Color(UIColor.separator)).padding();
-                Spacer();
+                    Spacer();
+                    Text(amount).border(Color(UIColor.separator)).padding();
+                    Spacer();
+                //}
             }
             HStack {
                 Spacer();
@@ -76,12 +79,6 @@ struct ContentView: View {
         _amount = _price - (_price * (_discount/100));
         _amount = _amount + (_amount * (_tax * 0.01));
         amount = String(_amount);
-        
-        let b = Bill();
-        b.price = _price;
-        b.discount = _discount;
-        b.amount = _amount;
-        print(b.price," , ",b.discount," , ",amount);
         
         print("exit calculate")
     }
