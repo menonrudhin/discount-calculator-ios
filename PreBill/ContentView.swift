@@ -36,9 +36,9 @@ struct ContentView: View {
                 Spacer();
             }*/
             ForEach(bills, id: \.id) { bill in
-                //HStack {
+                HStack {
                     Spacer();
-                    TextField("Price", text: $price).border(Color(UIColor.separator)).keyboardType(.decimalPad)
+                TextField("Price", text: $price).border(Color(UIColor.separator)).keyboardType(.decimalPad)
                         .onChange(of: price, perform: { value in
                         calculate()
                         }).padding();
@@ -48,7 +48,7 @@ struct ContentView: View {
                     Spacer();
                     Text(amount).border(Color(UIColor.separator)).padding();
                     Spacer();
-                //}
+                }
             }
             HStack {
                 Spacer();
@@ -77,7 +77,7 @@ struct ContentView: View {
         var _amount: Float = 0.0; // "var" to enable mutation
         
         _amount = _price - (_price * (_discount/100));
-        _amount = _amount + (_amount * (_tax * 0.01));
+        _amount = _amount + (_amount * (_tax/100));
         amount = String(_amount);
         
         print("exit calculate")
